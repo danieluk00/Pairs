@@ -39,7 +39,7 @@ const showCard = e => {
 
     for (let n=1; n<=14; n++) {
         if (e.target.parentElement.classList.contains('card'+n)) {
-            e.target.src="../assets/card"+n+".jpeg"
+            e.target.src="/assets/card"+n+".jpeg"
 
             if (firstCard==null) {
                 firstCard = e.target;
