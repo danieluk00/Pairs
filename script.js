@@ -39,7 +39,7 @@ const showCard = e => {
 
     for (let n=1; n<=14; n++) {
         if (e.target.parentElement.classList.contains('card'+n)) {
-            e.target.src="/assets/card"+n+".jpeg"
+            e.target.src="assets/card"+n+".jpeg"
 
             if (firstCard==null) {
                 firstCard = e.target;
@@ -77,8 +77,8 @@ const showCard = e => {
                     setTimeout(function(){ 
                             animateCSS(firstCard.parentElement,'flipInY');
                             animateCSS(secondCard.parentElement,'flipInY');
-                            firstCard.src = "../assets/card.jpeg"
-                            secondCard.src = "../assets/card.jpeg"
+                            firstCard.src = "assets/card.jpeg"
+                            secondCard.src = "assets/card.jpeg"
                             resetTurn();
                     }, 1500);
                 }
