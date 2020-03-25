@@ -1,0 +1,126 @@
+body {
+    /* padding-bottom: calc(10rem - 72px); */
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 9%, rgba(0,212,255,1) 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    max-width: 80vw;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    background: url("../assets/card.png");
+    background-size: cover;
+    width: 140px;
+    height: 180px;
+    margin: 20px 30px;
+    border-radius: 20px;
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .card {
+        width: 100px;
+        height: 140px;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 751px) and (max-width: 900px) {
+    .card {
+        width: 85px;
+        height: 110px;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 551px) and (max-width: 750px) {
+    .card {
+        width: 80px;
+        height: 100px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 550px) {
+    .card {
+        width: 55px;
+        height: 80px;
+        margin: 5px;
+    }
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 5px 5px #888888;
+}
+
+.card.card1.show {
+    background: url("../assets/card1.jpeg") !important;
+}
+
+.card.card2.show {
+    background: url("../assets/card2.jpeg") !important;
+}
+
+.card.card3.show {
+    background: url("../assets/card3.jpeg") !important;
+}
+
+.card.card4.show {
+    background: url("../assets/card4.jpeg");
+}
+
+.card.card5.show {
+    background: url("../assets/card5.jpeg");
+}
+
+.card.card6.show {
+    background: url("../assets/card6.jpeg");
+}
+
+.card.card7.show {
+    background: url("../assets/card7.jpeg");
+}
+
+.card.card8.show {
+    background: url("../assets/card8.jpeg");
+}
+
+.card.card9.show {
+    background: url("../assets/card9.jpeg");
+}
+
+.card.card10.show {
+    background: url("../assets/card10.jpeg");
+}
+
+.card.card11.show {
+    background: url("../assets/card11.jpeg");
+}
+
+.card.card12.show {
+    background: url("../assets/card12.jpeg");
+}
+
+.card.card13.show {
+    background: url("../assets/card13.jpeg");
+}
+
+.card.card14.show {
+    background: url("../assets/card14.jpeg");
+}
