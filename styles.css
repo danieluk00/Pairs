@@ -22,12 +22,18 @@ body {
 }
 
 .card {
-    background: url("../assets/card.png");
-    background-size: cover;
     width: 140px;
     height: 180px;
     margin: 20px 30px;
     border-radius: 20px;
+}
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+    .card {
+        width: 110px;
+        height: 150px;
+        margin: 15px;
+    }
 }
 
 @media (min-width: 901px) and (max-width: 1200px) {
@@ -54,7 +60,23 @@ body {
     }
 }
 
-@media (max-width: 550px) {
+@media (min-width: 451px) and (max-width: 550px) {
+    .card {
+        width: 70px;
+        height: 90px;
+        margin: 10px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 450px) {
+    .card {
+        width: 60px;
+        height: 80px;
+        margin: 7px;
+    }
+}
+
+@media (max-width: 375px) {
     .card {
         width: 55px;
         height: 80px;
@@ -69,58 +91,36 @@ body {
     box-shadow: 5px 5px #888888;
 }
 
-.card.card1.show {
-    background: url("../assets/card1.jpeg") !important;
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+
+  }
+
+#inneroverlay {
+    position: absolute;
+    top: 33%;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
-.card.card2.show {
-    background: url("../assets/card2.jpeg") !important;
-}
-
-.card.card3.show {
-    background: url("../assets/card3.jpeg") !important;
-}
-
-.card.card4.show {
-    background: url("../assets/card4.jpeg");
-}
-
-.card.card5.show {
-    background: url("../assets/card5.jpeg");
-}
-
-.card.card6.show {
-    background: url("../assets/card6.jpeg");
-}
-
-.card.card7.show {
-    background: url("../assets/card7.jpeg");
-}
-
-.card.card8.show {
-    background: url("../assets/card8.jpeg");
-}
-
-.card.card9.show {
-    background: url("../assets/card9.jpeg");
-}
-
-.card.card10.show {
-    background: url("../assets/card10.jpeg");
-}
-
-.card.card11.show {
-    background: url("../assets/card11.jpeg");
-}
-
-.card.card12.show {
-    background: url("../assets/card12.jpeg");
-}
-
-.card.card13.show {
-    background: url("../assets/card13.jpeg");
-}
-
-.card.card14.show {
-    background: url("../assets/card14.jpeg");
+.btn {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 5px;
+    background: white;
 }

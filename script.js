@@ -5,6 +5,7 @@ let firstCardValue = null;
 let secondCard = null;
 let secondCardValue = null;
 let inPlay = true;
+let moves = 0;
 const cards = document.querySelectorAll('.card')
 
 const load = () => {
@@ -51,6 +52,7 @@ const showCard = e => {
             } else {
                 secondCard = e.target;
                 secondCardValue = n;
+                moves++;
 
                 if (firstCardValue==secondCardValue) {
                     setTimeout(function(){ 
@@ -64,9 +66,7 @@ const showCard = e => {
                             resetTurn();
                         } else {
                             setTimeout(function(){ 
-                                cards.forEach(card => {
-                                    animateCSS(card,'flip');
-                                })
+                                win();
                             }, 700);
                         }
 
@@ -82,7 +82,6 @@ const showCard = e => {
                             resetTurn();
                     }, 1500);
                 }
-
             }
         }
     }
@@ -113,4 +112,42 @@ function animateCSS(element, animationName, hide, callback) {
     }
 
     element.addEventListener('animationend', handleAnimationEnd)
+}
+
+const playAgain = () => {
+    moves = 0;
+    turnNumber = 1;
+    cardsFound = 0;
+    inPlay=true;
+    firstCard = null;
+    firstCardValue = null;
+    secondCard = null;
+    secondCardValue = null;
+    document.getElementById("overlay").style.display = "none";
+
+    cards.forEach(card => {
+
+        for (let n=1; n<=14; n++) {
+            if (card.classList.contains('card'+n)) {
+                card.classList.remove('card'+n);
+            }
+        }
+        card.classList.remove('show');
+        card.children[0].src="assets/card.jpeg"
+        animateCSS(card,'pulse');
+
+    })
+
+    load();
+}
+
+const win = () => {
+    cards.forEach(card => {
+        animateCSS(card,'flip');
+    })
+    setTimeout(function(){ 
+        document.getElementById('copy').innerText="You completed the grid in " + moves + " moves"
+        document.getElementById("overlay").style.display = "block";
+        animateCSS(document.getElementById("overlay"),'fadeIn');
+    }, 1000);
 }
