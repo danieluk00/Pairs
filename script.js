@@ -13,7 +13,7 @@ const load = () => {
     let dealt = {};
 
     cards.forEach(card => {
-
+    
         //Deal card
         let pick = Math.floor(Math.random() * 14) + 1
         do { 
@@ -59,6 +59,7 @@ const showCard = e => {
                         cardsFound++;
 
                         if (cardsFound<14) {
+                            playAudio('correct.mp3');
                             animateCSS(firstCard.parentElement,'tada');
                             animateCSS(secondCard.parentElement,'tada');
                             firstCard.parentElement.classList.add('show');
@@ -79,6 +80,9 @@ const showCard = e => {
                             animateCSS(secondCard.parentElement,'flipInY');
                             firstCard.src = "assets/card.jpeg"
                             secondCard.src = "assets/card.jpeg"
+
+                        playAudio('wrong.mp3');
+
                             resetTurn();
                     }, 1500);
                 }
@@ -142,12 +146,38 @@ const playAgain = () => {
 }
 
 const win = () => {
+
+    playAudio('win.mp3');
+
     cards.forEach(card => {
         animateCSS(card,'flip');
     })
     setTimeout(function(){ 
-        document.getElementById('copy').innerText="You completed the grid in " + moves + " moves"
+
+        const highscore = parseInt(localStorage.getItem('highscore'));
+
+        if (localStorage.getItem('highscore')==null) {
+            document.getElementById('copy').innerText="You completed the board in " + moves + " moves."
+            localStorage.setItem('highscore', moves);
+        } else if (moves<highscore) {
+            document.getElementById('copy').innerText="You completed the board in " + moves + " moves. That's a new personal best!"
+            localStorage.setItem('highscore', moves);  
+        } else if (moves>highscore) {
+            document.getElementById('copy').innerText="You completed the board in " + moves + " moves. Your personal best is still "+localStorage.getItem('highscore')+"."
+            localStorage.setItem('highscore', moves);  
+        } else if (moves==highscore) {
+            document.getElementById('copy').innerText="You completed the board in " + moves + " moves. You've matched your personal best!"
+        }
+
+ 
         document.getElementById("overlay").style.display = "block";
         animateCSS(document.getElementById("overlay"),'fadeIn');
     }, 1000);
+}
+
+const playAudio = file => {
+    // if (window.localStorage.getItem('audio')!='false') {
+        let audio = new Audio('/assets/'+file);
+        audio.play();
+    // }
 }

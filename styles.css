@@ -126,6 +126,12 @@ img {
     padding-bottom: 50px;
 }
 
+@media (max-width: 600px) {
+    #inneroverlay {
+        top: 25%;
+    }
+}
+
 .btn {
     width: 200px;
     height: 40px;
